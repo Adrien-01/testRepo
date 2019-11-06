@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 April 2011 7:52:33 PM by Hibernate Tools 3.4.0.CR1 -->
+
+<!-- Mappé les entitées -->
+<hibernate-mapping>
+	<class name="fr.adaming.entities.Livre" table="tb_livre">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id"></column>  <!-- nom de la colonne -->
+			<generator class="identity"></generator> <!-- autoincrementation -->
+		</id>
+
+		<property name="titre" type="string">
+			<column name="titre" not-null="true" length="30"></column>
+		</property>
+
+		<property name="auteur" type="string">
+			<column name="auteur" not-null="true" length="30"></column>
+		</property>
+
+		<property name="editeur" type="string">
+			<column name="editeur" not-null="true" length="30"></column>
+		</property>
+
+		<property name="nbPages" type="java.lang.Integer">
+			<column name="nbPages" not-null="true"></column>
+		</property>
+
+		<property name="prix" type="java.lang.Double">
+			<column name="prix" not-null="true"></column>
+		</property>
+
+		<property name="dateParution" type="java.util.Date">
+			<column name="dateParution" ></column>
+		</property>
+
+		<property name="categorie" type="string">
+			<column name="categorie" not-null="true" length="30"></column>
+		</property>
+
+		<property name="poids" type="java.lang.Double">
+			<column name="poids" not-null="true"></column>
+		</property>
+
+		<property name="stock" type="java.lang.Integer">
+			<column name="stock" not-null="true"></column>
+		</property>
+	
+		<many-to-one name="etagere" class="fr.adaming.entities.Etagere" fetch="select"> <!-- Lien entre id etagere et id livre  -->
+		<column name="etagere_id"></column>
+		</many-to-one>
+
+	</class>
+
+</hibernate-mapping>

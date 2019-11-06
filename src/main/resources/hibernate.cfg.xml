@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<!-- c'est une usine à instance, créer des instances et vérifie celles existantes -->
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_librairie</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property> <!--convertir methode java en requete sql -->
+		<property name="show_sql">true</property> <!--affiche base de donnée dans console -->
+		<property name="hbm2ddl.auto">create-drop</property> <!-- Permet de créer une table automatiquement -->
+		<mapping resource="fr/adaming/entities/Livre.hbm.xml" /><!--prendre en charge ce qu'on a mappé dans hbm-->
+		<mapping resource="fr/adaming/entities/Etagere.hbm.xml" /> 
+		
+
+
+
+	</session-factory>
+
+</hibernate-configuration>
